@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <p class="card-text">
                         <i class="fa fa-github" aria-hidden="true"></i>
-                        <a href="http://github.com/wjgilmore/TechEvents">TechEvents Source Code</a>
+                        <a href="http://github.com/VanArmenia/TechEvents">TechEvents Source Code</a>
                     </p>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <p class="card-text">TechEvents is the platform to make meetings between developers, IT managers, StartUP owners easy and seamless.</p>
                     <p class="card-text">
                         Best of all, all interested Laravel developers are provided with free access to the TechEvents GitHub repository.
-                        Head on over to <a href="http://github.com/wjgilmore/TechEvents">GitHub</a> to download the latest release.
+                        Head on over to <a href="http://github.com/VanArmenia/TechEvents">GitHub</a> to download the latest release.
                     </p>
 
                 </div>
