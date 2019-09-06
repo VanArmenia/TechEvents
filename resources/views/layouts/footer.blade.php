@@ -5,7 +5,8 @@
                 <h5>Get started</h5>
                 <ul>
                     <li>
-                        {{--{{ link_to_route('register', 'Create an Account', [], ['class' => 'nav-link']) }}--}}
+                        <a  class="nav-link" href="{{ route('register',[]) }}">Create an Account </a>
+
                     </li>
 
                 </ul>
@@ -14,10 +15,14 @@
                 <h5>About Us</h5>
                 <ul>
                     <li>
-                        {{--{{ link_to_route('about.index', 'About HackerPair', [], ['class' => 'nav-link']) }}--}}
+
+                        <a  class="nav-link" href="{{ route('about.index',[]) }}">About TechEvents </a>
+
                     </li>
                     <li>
-                        {{--{{ link_to_route('contact.create', 'Contact Us', [], ['class' => 'nav-link']) }}--}}
+
+                        <a  class="nav-link" href="{{ route('contact.create', []) }}">Contact Us</a>
+
                     </li>
                 </ul>
             </div>
@@ -25,9 +30,9 @@
         </div>
         <div class="row">
             <div class="col-md-12 social-networks">
-                <a href="http://twitter.com/hackerpair" class="twitter"><i class="fa fa-twitter"></i></a>
-                <a href="http://facebook.com/hackerpair" class="facebook"><i class="fa fa-facebook-official"></i></a>
-                <a href="http://github.com/wjgilmore/hackerpair" class="github"><i class="fa fa-github"></i></a>
+                <a href="http://twitter.com/techevents" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="http://facebook.com/techevents" class="facebook"><i class="fa fa-facebook-official"></i></a>
+                <a href="http://github.com/VanArmenia/techevents" class="github"><i class="fa fa-github"></i></a>
             </div>
         </div>
         <div class="footer-copyright">
