@@ -21,7 +21,7 @@
 
     <select name="category_id">
     @foreach( $category as $speccategory )
-    <option value="{{ $speccategory->name }}" >{{ $speccategory->name }}.</option>
+    <option value="{{ $speccategory->id }}" >{{ $speccategory->name }}.</option>
     @endforeach
     </select>
 
@@ -47,36 +47,29 @@
     <div class="form-group">
         <label class="control-label" for="start_date">Starting Date</label>
 
-        {{--<date-picker--}}
-                {{--placeholder="Select an event date"--}}
-                {{--defaultvalue="{{isset($event) ? $event->start_date : old('start_date')}}"--}}
-                {{--name="start_date">--}}
-            {{----}}
-        {{--</date-picker>--}}
+        <date-picker
+                placeholder="Select an event date"
+                defaultvalue="{{$carbon->now()}}"
+                name="start_date">
 
-        <input
-                class="form-control"
-                type="date"
-                name="start_date"
-                id="start_date"
-                {{--value="{{ $event->start_date }}"--}}
-        >
+        </date-picker>
+
+
     </div>
 
-    <div class="form-group">
+    {{--<div class="form-group">--}}
 
-        <label class="control-label" for="start_time">Starting Time (in your time zone)</label>
+        {{--<label class="control-label" for="start_time">Starting Time</label>--}}
 
-        {{--{!! Form::select('start_time', \App\Library\Time::generateHalfHourIntervalArray(), null, ['placeholder' => 'Starting Time', 'class' => 'form-control input-lg']) !!}--}}
+        {{--<select name="start_time" id="start_time" class="form-control input-lg">--}}
+            {{--@foreach( $starttime as $specstarttime )--}}
+                {{--<option value="{{ $specstarttime->format('Y-m-d H:i:s.u0') }}" >{{ $specstarttime}}.</option>--}}
+            {{--@endforeach--}}
 
-        <input
-                class="form-control"
-                type="datetime-local"
-                name="start_time"
-                id="start_time"
-                {{--value="{{ $event->start_time }}"--}}
-        >
-    </div>
+        {{--</select>--}}
+
+
+    {{--</div>--}}
 
 
     <div class="form-group">
@@ -93,53 +86,110 @@
                 cols="50"
 
         >
-            {{--{{$event->description}}--}}
+
         </textarea>
+    </div>
 
-        <div class="form-group">
+    <div class="form-group">
+        <label class="" for="oneliner">Short Description</label>
 
-            <label class="control-label" for="venue">Venue</label>
+        <textarea
 
-            <input
-                    type="text"
-                    class="form-control input-lg"
-                    name="venue"
-                    id="venue"
-                    placeholder="Starbucks"
-                    required
-                    {{--value="{{ $event->venue }}"--}}
-            >
-        </div>
+                class="form-control input-lg"
+                name="oneliner"
+                id="oneliner"
+                placeholder="Describe the event"
+                required
+                rows="2"
+                cols="50"
+        >
 
-        <div class="form-group">
-            <label class="control-label" for="street">Street</label>
+        </textarea>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="state_id">State</label>
+        <select name="state_id" id="state_id" class="form-control input-lg">
 
-            <input
-                    type="text"
-                    class="form-control input-lg"
-                    name="street"
-                    id="street"
-                    placeholder="21 Jump Street"
-                    required
-                    {{--value="{{ $event->street }}"--}}
-            >
-        </div>
+            @foreach( $states as $key => $state )
 
-        <div class="form-group">
-            <label class="control-label" for="published">Publish this event immediately?</label>
+                @if ($key == $event->state_id )
+                    <option value="{{ $state }}" selected>{{ $state }}</option>
+                @else
+                    <option value="{{ $state }}" >{{ $state}}.</option>
+                @endif
 
-            <input
-                    type="checkbox"
-                    name="published"
-                    id="published"
-                    class="form-control input-lg"
-                    {{--{{ $event->published ? 'checked' : '' }}--}}
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
 
-            >
+        <label class="control-label" for="city">City</label>
 
-        </div>
+        <input
+                type="text"
+                class="form-control input-lg"
+                name="city"
+                id="city"
+                placeholder="Starbucks"
+                required
+        >
+    </div>
+    <div class="form-group">
+
+        <label class="control-label" for="venue">Venue</label>
+
+        <input
+                type="text"
+                class="form-control input-lg"
+                name="venue"
+                id="venue"
+                placeholder="Starbucks"
+                required
+                {{--value="{{ $event->venue }}"--}}
+        >
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="street">Street</label>
+
+        <input
+                type="text"
+                class="form-control input-lg"
+                name="street"
+                id="street"
+                placeholder="21 Jump Street"
+                required
+                {{--value="{{ $event->street }}"--}}
+        >
+    </div>
+    <div class="form-group">
+
+        <label class="control-label" for="zip">Zip Code</label>
+
+        <input
+                type="text"
+                class="form-control input-lg"
+                name="zip"
+                id="zip"
+                placeholder="Starbucks"
+                required
+        >
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="published">Publish this event immediately?</label>
+
+        <input
+                type="checkbox"
+                name="published"
+                id="published"
+                class="form-control input-lg"
+                {{--{{ $event->published ? 'checked' : '' }}--}}
+
+        >
 
     </div>
+
     <div class="form-group">
         <div class="control">
             <button type="submit" class="btn btn-primary">{{ $buttonText }}</button>
@@ -147,32 +197,9 @@
         </div>
     </div>
 
-    {{--<div class="form-group">--}}
-    {{--{!! Form::label('oneliner', "Oneliner", ['class' => 'control-label']) !!}--}}
-    {{--{!! Form::textarea('oneliner', null, ['class' => 'form-control input-lg', 'placeholder' => 'Describe the event in one line']) !!}--}}
-    {{--</div>--}}
 
-    {{--<div class="form-group">--}}
-    {{--{!! Form::label('city', "City", ['class' => 'control-label']) !!}--}}
-    {{--{!! Form::text('city', null, ['class' => 'form-control input-lg', 'placeholder' => 'City'] ) !!}--}}
-    {{--</div>--}}
 
-    {{--<div class="form-group">--}}
-        {{--<label class="control-label" for="state_id">State</label>--}}
-        {{--<select name="state_id" id="state_id" class="form-control input-lg">--}}
 
-        {{--@foreach( $states as $key => $state )--}}
 
-            {{--@if ($key == $event->state_id )--}}
-                {{--<option value="{{ $state }}" selected>{{ $state }}</option>--}}
-            {{--@else--}}
-                {{--<option value="{{ $state }}" >{{ $state}}.</option>--}}
-            {{--@endif--}}
 
-        {{--@endforeach--}}
-    {{--</select>--}}
 
-    {{--<div class="form-group">--}}
-    {{--{!! Form::label('zip', "Zip Code", ['class' => 'control-label']) !!}--}}
-    {{--{!! Form::text('zip', null, ['class' => 'form-control input-lg'] ) !!}--}}
-    {{--</div>--}}

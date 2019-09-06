@@ -54,7 +54,7 @@
         <div class="col-md-4 col-sm-12">
 
 
-            <form method="POST" action="/users.hosted.store">
+            <form method="POST" action="{{route('users.hosted.store',[ Auth::user()])}}">
                 @csrf
 
 
@@ -63,7 +63,9 @@
                                 'buttonText' => 'Create Event',
                                 'category' => App\Category::all(),
                                 'max_attendees' => [2,3,4,5] ,
-
+                                'carbon' => new Carbon\Carbon ,
+                                'starttime' =>  \App\Library\Time::generateHalfHourIntervalArray(),
+                                'states' => \App\State::orderBy('name', 'asc')->pluck('name', 'id'),
 
                             ])
 

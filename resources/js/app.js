@@ -9,7 +9,7 @@ Vue.component('favorite', require('./components/Favorite.vue').default);
 Vue.component('ticket-box', require('./components/TicketBox.vue').default);
 Vue.component('google-cluster', VueGoogleMaps.Cluster);
 Vue.component('gmap-infowindow', VueGoogleMaps.InfoWindow);
-Vue.component('date-picker', require('./components/DatePicker.vue'));
+Vue.component('date-picker', require('./components/DatePicker.vue').default );
 
 import Notifications from 'vue-notification'
 

@@ -56688,7 +56688,7 @@ Vue.component('favorite', __webpack_require__(/*! ./components/Favorite.vue */ "
 Vue.component('ticket-box', __webpack_require__(/*! ./components/TicketBox.vue */ "./resources/js/components/TicketBox.vue")["default"]);
 Vue.component('google-cluster', vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__["Cluster"]);
 Vue.component('gmap-infowindow', vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__["InfoWindow"]);
-Vue.component('date-picker', __webpack_require__(/*! ./components/DatePicker.vue */ "./resources/js/components/DatePicker.vue"));
+Vue.component('date-picker', __webpack_require__(/*! ./components/DatePicker.vue */ "./resources/js/components/DatePicker.vue")["default"]);
 
 Vue.use(vue_notification__WEBPACK_IMPORTED_MODULE_1___default.a);
 Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
