@@ -42,7 +42,7 @@
                                 Classified
                             <li class="list-group-item" style="border: none;">
                                 <span class="fa fa-calendar" style="color: #FFC200; padding-right: 5px;" aria-hidden></span>
-                                support@hackerpair.com
+                                support@techevents.com
                             </li>
                         </ul>
                     </div>
@@ -54,13 +54,17 @@
         <div class="col-md-4 col-sm-12">
 
 
-            <form method="POST" action="/events">
+            <form method="POST" action="/users.hosted.store">
                 @csrf
 
 
-                @include ('events.form', [
+                @include ('events.hosted.form', [
                                 'event' => new App\Event,
-                                'buttonText' => 'Create Event'
+                                'buttonText' => 'Create Event',
+                                'category' => App\Category::all(),
+                                'max_attendees' => [2,3,4,5] ,
+
+
                             ])
 
 

@@ -92,7 +92,9 @@
                         </ul>
                     </li>
 
-                    {{--<li class="nav-item">{!! link_to_route('users.hosted.create', 'Post Event', ['user' => Auth::user()], ['class' => 'nav-link']) !!}</li>--}}
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{ route('users.hosted.create', ['user' => Auth::user()]) }}">Post Event</a>
+                    </li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>

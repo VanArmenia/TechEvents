@@ -10,22 +10,22 @@
                 id="name"
                 placeholder="PHP Hacking and Pizza"
                 required
-                value="{{ $event->name }}"
+                {{--value="{{ $event->name }}"--}}
         >
 
     </div>
 
-    {{--<div class="form-group">--}}
+    <div class="form-group">
 
-    {{--<label class="control-label" for="category_id">Category</label><br />--}}
+    <label class="control-label" for="category_id">Category</label><br />
 
-    {{--<select name="category_id">--}}
-    {{--@foreach( $category as $speccategory )--}}
-    {{--<option value="{{ $speccategory->name }}" >{{ $speccategory-name }}.</option>--}}
-    {{--@endforeach--}}
-    {{--</select>--}}
+    <select name="category_id">
+    @foreach( $category as $speccategory )
+    <option value="{{ $speccategory->name }}" >{{ $speccategory->name }}.</option>
+    @endforeach
+    </select>
 
-    {{--</div>--}}
+    </div>
 
 
     <div class="form-group">
@@ -44,34 +44,39 @@
         </select>
     </div>
 
-    {{--<div class="form-group">--}}
-        {{--<label class="control-label" for="start_date">Starting Date</label>--}}
-        {{----}}
-        {{--<date-picker placeholder="Select an event date" defaultvalue="{{isset($event) ? $event->start_date : old('start_date')}}" name="start_date"></date-picker>--}}
+    <div class="form-group">
+        <label class="control-label" for="start_date">Starting Date</label>
 
-        {{--<input--}}
-                {{--class="form-control"--}}
-                {{--type="date"--}}
-                {{--name="start_date"--}}
-                {{--id="start_date"--}}
+        {{--<date-picker--}}
+                {{--placeholder="Select an event date"--}}
+                {{--defaultvalue="{{isset($event) ? $event->start_date : old('start_date')}}"--}}
+                {{--name="start_date">--}}
+            {{----}}
+        {{--</date-picker>--}}
+
+        <input
+                class="form-control"
+                type="date"
+                name="start_date"
+                id="start_date"
                 {{--value="{{ $event->start_date }}"--}}
-        {{-->--}}
-    {{--</div>--}}
+        >
+    </div>
 
-    {{--<div class="form-group">--}}
+    <div class="form-group">
 
-        {{--<label class="control-label" for="start_time">Starting Time (in your time zone)</label>--}}
+        <label class="control-label" for="start_time">Starting Time (in your time zone)</label>
 
         {{--{!! Form::select('start_time', \App\Library\Time::generateHalfHourIntervalArray(), null, ['placeholder' => 'Starting Time', 'class' => 'form-control input-lg']) !!}--}}
 
-        {{--<input--}}
-                {{--class="form-control"--}}
-                {{--type="datetime-local"--}}
-                {{--name="start_time"--}}
-                {{--id="start_time"--}}
+        <input
+                class="form-control"
+                type="datetime-local"
+                name="start_time"
+                id="start_time"
                 {{--value="{{ $event->start_time }}"--}}
-        {{-->--}}
-    {{--</div>--}}
+        >
+    </div>
 
 
     <div class="form-group">
@@ -88,7 +93,7 @@
                 cols="50"
 
         >
-            {{$event->description}}
+            {{--{{$event->description}}--}}
         </textarea>
 
         <div class="form-group">
@@ -102,7 +107,7 @@
                     id="venue"
                     placeholder="Starbucks"
                     required
-                    value="{{ $event->venue }}"
+                    {{--value="{{ $event->venue }}"--}}
             >
         </div>
 
@@ -116,7 +121,7 @@
                     id="street"
                     placeholder="21 Jump Street"
                     required
-                    value="{{ $event->street }}"
+                    {{--value="{{ $event->street }}"--}}
             >
         </div>
 
@@ -128,7 +133,7 @@
                     name="published"
                     id="published"
                     class="form-control input-lg"
-                    {{ $event->published ? 'checked' : '' }}
+                    {{--{{ $event->published ? 'checked' : '' }}--}}
 
             >
 
@@ -152,20 +157,20 @@
     {{--{!! Form::text('city', null, ['class' => 'form-control input-lg', 'placeholder' => 'City'] ) !!}--}}
     {{--</div>--}}
 
-    <div class="form-group">
-        <label class="control-label" for="state_id">State</label>
-        <select name="state_id" id="state_id" class="form-control input-lg">
+    {{--<div class="form-group">--}}
+        {{--<label class="control-label" for="state_id">State</label>--}}
+        {{--<select name="state_id" id="state_id" class="form-control input-lg">--}}
 
-        @foreach( $states as $key => $state )
+        {{--@foreach( $states as $key => $state )--}}
 
-            @if ($key == $event->state_id )
-                <option value="{{ $state }}" selected>{{ $state }}</option>
-            @else
-                <option value="{{ $state }}" >{{ $state}}.</option>
-            @endif
+            {{--@if ($key == $event->state_id )--}}
+                {{--<option value="{{ $state }}" selected>{{ $state }}</option>--}}
+            {{--@else--}}
+                {{--<option value="{{ $state }}" >{{ $state}}.</option>--}}
+            {{--@endif--}}
 
-        @endforeach
-    </select>
+        {{--@endforeach--}}
+    {{--</select>--}}
 
     {{--<div class="form-group">--}}
     {{--{!! Form::label('zip', "Zip Code", ['class' => 'control-label']) !!}--}}
