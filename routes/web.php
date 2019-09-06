@@ -32,6 +32,8 @@ Route::resource('events', 'EventsController');
 Route::resource('states', 'StatesController');
 Route::resource('favorites', 'FavoritesController');
 
+Route::resource('tickets', 'TicketsController');
+
 Route::get('users/{user}/hosted/{any_hosted_event}/edit', 'UserHostedEventsController@edit');
 Route::put('users/{user}/hosted/{any_hosted_event}', 'UserHostedEventsController@update');
 Route::resource('users.hosted', 'UserHostedEventsController');
